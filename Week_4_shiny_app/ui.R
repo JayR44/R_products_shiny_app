@@ -26,6 +26,7 @@ shinyUI(fluidPage(
 
         # Show a plot of the generated graph and the Pearson correlation coefficient
         mainPanel(
+            uiOutput("doc"),
             plotOutput("plot"),
             h3(textOutput("corr_desc")),
             h3(textOutput("corr_value"))

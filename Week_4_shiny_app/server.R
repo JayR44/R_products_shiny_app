@@ -59,5 +59,10 @@ shinyServer(function(input, output) {
             paste0("The Pearson correlation between price and ", vari, " is")
         }
     })
+    
+    url <- a("App documentation", href="http://rpubs.com/JayR44/633753")
+    output$doc <- renderUI({
+        tagList("Link to app documentation:", url)
+    })
 
 })
