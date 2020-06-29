@@ -1,6 +1,6 @@
 ---
 title: "R shiny app documentation"
-date: "28 June 2020"
+date: "29 June 2020"
 output: html_document
 ---
 

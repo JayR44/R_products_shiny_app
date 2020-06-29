@@ -5,6 +5,8 @@ account: jayr44
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2517829
-bundleId: 3330521
+bundleId: 3330945
 url: https://jayr44.shinyapps.io/week_4_shiny_app/
-when: 1593453157.25734
+when: 1593460472.69768
+asMultiple: FALSE
+asStatic: FALSE
