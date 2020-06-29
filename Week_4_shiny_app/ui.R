@@ -1,22 +1,16 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 library(tidyverse)
+library(shinyjs)
 library(shiny)
 
-# Define UI for application that draws a histogram
+# Define UI for application that creates scatter and box plots
 shinyUI(fluidPage(
     useShinyjs(),
 
     # Application title
-    titlePanel("Predict diamond price"),
+    titlePanel("Diamond prices"),
 
-    # Sidebar with a slider input for number of bins
+    # Sidebar with a selection input for x variable
     sidebarLayout(
         sidebarPanel(
             selectInput("select_variable", "See the impact of which variable (var) on price of diamonds",
@@ -24,14 +18,17 @@ shinyUI(fluidPage(
             selectInput("select_log_var", "Choose 'var' or 'log(var)'",
                         choices = c("var", "log(var)")),
             selectInput("select_log", "Choose 'price' or 'log(price)'",
-                        choices = c("price", "log(price)"))#,
-           # submitButton("Submit")
+                        choices = c("price", "log(price)")),
+            checkboxInput("checkbox", "Show/Hide correlation coefficient", value = TRUE),
+            submitButton("Submit")
 
         ),
 
-        # Show a plot of the generated distribution
+        # Show a plot of the generated graph and the Pearson correlation coefficient
         mainPanel(
-            plotOutput("plot")
+            plotOutput("plot"),
+            h3(textOutput("corr_desc")),
+            h3(textOutput("corr_value"))
         )
     )
 ))

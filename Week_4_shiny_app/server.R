@@ -46,4 +46,18 @@ shinyServer(function(input, output) {
     })
     
 
+    output$corr_value <- renderText({
+        vari <- input$select_variable
+        if(input$checkbox & (!is.factor(diamonds[[vari]]))){
+        cor(diamonds[["price"]], diamonds[[vari]])
+        }
+    })
+    
+    output$corr_desc <- renderText({
+        vari <- input$select_variable
+        if(input$checkbox & (!is.factor(diamonds[[vari]]))){
+            paste0("The Pearson correlation between price and ", vari, " is")
+        }
+    })
+
 })
